@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <title>Дневник</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+</head>
+
+<body>
+    <div class="root root_2 root_3" id="root"></div>
+</body>
+
+<script>
+    window.onload = function() {
+        let e = function(x, y) {
+        let arr = x.className;
+        arr = `${arr} ${y}`;
+        x.className = arr;
+        return x.className;
+    }
+
+        let d = document.getElementById("root");
+
+        let timer1 = 0;
+        console.time(timer1);
+            e(d, "foo");
+        console.timeEnd(timer1);
+
+        let timer2 = 0;
+        console.time(timer2);
+            d.classList.add('bar');
+        console.timeEnd(timer2);
+
+    }
+
+
+</script>
+
+</html>
