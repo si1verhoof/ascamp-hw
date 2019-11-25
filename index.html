@@ -2,38 +2,111 @@
 <html lang="ru">
 
 <head>
-  <title>Дневник</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Дневник</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
 </head>
 
 <body>
     <div class="root root_2 root_3" id="root"></div>
+    <table>
+        <tr>
+            <th data-type="int">Id</th>
+            <th>Name</th>
+            <th data-type="float">Price</th>
+            <th data-type="int">Rest</th>
+            <th data-type="date">Sale start</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>Up & Going</td>
+            <td>10</td>
+            <td>5</td>
+            <td>March 2015</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Scope & Closures</td>
+            <td>15.99</td>
+            <td>1</td>
+            <td>March 2014</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>this & Object Prototypes</td>
+            <td>18.99</td>
+            <td>9</td>
+            <td>July 2014</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>Types & Grammar</td>
+            <td>18.99</td>
+            <td>7</td>
+            <td>January 2015</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>Async & Performance</td>
+            <td>21.99</td>
+            <td>6</td>
+            <td>February 2015</td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>ES6 & Beyond</td>
+            <td>17.99</td>
+            <td>8</td>
+            <td>December 2015</td>
+        </tr>
+    </table>
 </body>
 
 <script>
-    window.onload = function() {
-        let e = function(x, y) {
-        let arr = x.className;
-        arr = `${arr} ${y}`;
-        x.className = arr;
-        return x.className;
-    }
+    //Пункт 1.1
+    window.onload = function () {
+        let e = function (x, y) {
+            let arr = x.className;
+            arr = `${arr} ${y}`;
+            x.className = arr;
+            return x.className;
+        }
 
         let d = document.getElementById("root");
 
         let timer1 = 0;
         console.time(timer1);
-            e(d, "foo");
+        e(d, "foo");
         console.timeEnd(timer1);
 
         let timer2 = 0;
         console.time(timer2);
-            d.classList.add('bar');
+        d.classList.add('bar');
         console.timeEnd(timer2);
 
-    }
+        //Пункт 1.2
+        let z = function () {
+            let tableList = [];
+            const tr = document.getElementsByTagName("tr");
+            let keys = [];
+            let th = tr.item(0).getElementsByTagName("th");
+            for(let k = 0; k < th.length; k++) {
+                keys.push(th[k].innerText);
+            }
+            tableList.push(keys);
 
+            for (let i = 1; i < tr.length; i++) {
+                let td = tr.item(i).getElementsByTagName("td");
+                let obj = {};
+                for (let y = 0; y < td.length; y++) {
+                    let keyVal = keys[y].innerText;
+                    obj.keyVal = td[y].innerText;
+                }
+                tableList.push(obj);
+            }
+            return tableList;
+        }
+    }
 
 </script>
 
