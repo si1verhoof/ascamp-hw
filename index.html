@@ -12,7 +12,7 @@
 
 <script>
 
-    {
+    let collection = {
         data: [
             { score: 10, name: 'Bob', age: 18 },
             { score: 2, name: 'Qob', age: 28 },
@@ -25,8 +25,62 @@
             { score: 12, name: 'Sob', age: 8 },
             { score: 3, name: 'Dob', age: 18 },
             { score: 5, name: 'Fob', age: 28 },
-        ]
+        ],
+        ArrToString: function(name, score, age) {
+            this.name = name;
+            this.score = score;
+            this.age = age;
+        }
     }
+
+    let arr = collection.data;
+
+    //p1
+
+    function arrSummScore(a) {
+        summScore = 0;
+
+        for (let i = 0; i < a.length; i++) {
+            summScore += a[i].score;
+        }
+
+        return summScore;
+    }
+
+    const score = arrSummScore(arr);
+
+    //p2
+
+    const oldPeople = arr.filter((prop) => {
+        return prop.age >= 18;
+    })
+
+    //p3
+
+    const bNamedPeople = arr.filter((prop) => {
+        return prop.name.slice(0, 1) === 'B';
+    })
+
+    //p4
+    function arrChange(a) {
+        let newArr = [];
+
+        for (let i = 0; i < a.length; i++) {
+            let arrToString = '';
+
+            arrToString = new arr.ArrToString(a[i].name, a[i].socre, a[i].age);
+
+            arrToString.prototype.toString = function toString() {
+                return `${this.name} - ${this.age}: ${this.score}`;
+            }
+
+            newArr.push(arrToString);
+        }
+
+        return newArr;
+    }
+
+    //p5 ???
 
 
 </script>
