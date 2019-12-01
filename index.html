@@ -11,6 +11,113 @@
 </body>
 
 <script>
+    //1
+    const print1 = () => console.log('каждый');
+    const print2 = () => console.log('охотник');
+    const print3 = () => console.log('желает');
+    const print4 = () => console.log('знать');
+    const print5 = () => console.log('где');
+    const print6 = () => console.log('сидит');
+    const print7 = () => console.log('фазан');
+
+    const func1 = () => {
+        console.log('желает');
+    };
+
+    const func2 = () => {
+        func1();
+
+        setTimeout(() => {
+            console.log('фазан');
+        }, 100);
+    }
+
+    const func3 = () => {
+        setTimeout(() => {
+            func2();
+            console.log('знать');
+        }, 25);
+
+        console.log('охотник');
+    }
+
+    setTimeout(() => {
+        console.log('где');
+
+        setTimeout(() => {
+            console.log('сидит');
+        }, 75);
+    }, 50);
+
+    console.log('каждый');
+
+    func3();
+
+    //2
+
+    /**
+* реализовать функцию-конструктор копилки
+* - номер счета - 3-х значное число, начиная с 1
+* - если номер меньше трехзначного числа, слева заполняем нулями
+* - состояние счета при создании, учитывается в транзакциях
+*/
+    function Moneybox() {
+    }
+
+    /**
+    * реализовать получение информации о состоянии копилки
+    * вывод должен быть в формате
+    *
+    * ***
+    * Номер: 001
+    * На счету: 150
+    * Транзакции: 200, -100, 50
+    * ***
+    */
+    function getMoneyboxInfo() {
+    }
+
+    /**
+    * реализовать добавление в копилку
+    */
+    function addToMoneybox() {
+    }
+
+    /**
+    * реализовать изъятие из копилки
+    */
+    function takeFromMoneybox() {
+    }
+
+    const moneybox1 = new Moneybox(100);
+    const moneybox2 = new Moneybox;
+
+    /**
+    * пиши код ниже
+    */
+
+
+
+
+
+    /**
+    * пиши код выше
+    */
+
+
+    /**
+    * используя addToMoneybox и takeFromMoneybox определи следующие функции
+    */
+    add100ToMoneybox1();    // добавит 100 в moneybox1
+    addToMoneybox2(500);    // добавит 500 в moneybox2
+    take250FromMoneybox2(); // изымает 250 из moneybox2
+    take10FromMoneybox1();  // изымает 10 из moneybox1
+
+    /**
+    * используя getMoneyboxInfo определи следующие переменные
+    */
+    console.log(moneybox1Info);
+    console.log(moneybox2Info);
 </script>
 
 </html>
