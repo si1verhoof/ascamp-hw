@@ -55,13 +55,55 @@
 
     //2
 
+    2.
+    /*Написать функцию-конструктор, создающую объект прямоугольника. Объект должен иметь:
+    Размеры сторон.
+    Единицы измерения (например “см.”).
+    Метод, возвращающий информацию о прямоугольнике в формате “ширина: 100 см., высота: 100 см.”.
+
+    Написать функции:
+    getArea - расчет площади прямоугольника 
+    getPerimetr - расчет периметра прямоугольника
+
+    Создать объект прямоугольника и вывести в консоль:
+    Информацию о нем
+    Площадь и периметр, используя getArea и getPerimetr (использовать call, apply или bind).
+    */
+
+    function Rectangle(width, height) {
+        this.width = width;
+        this.height = height;
+
+        this.getArea = () => {
+            return (width * height);
+        }
+
+        this.getPerimetr = () => {
+            return ((width + height) * 2);
+        }
+    }
+
+    //3
     /**
-* реализовать функцию-конструктор копилки
-* - номер счета - 3-х значное число, начиная с 1
-* - если номер меньше трехзначного числа, слева заполняем нулями
-* - состояние счета при создании, учитывается в транзакциях
-*/
-    function Moneybox() {
+    * реализовать функцию-конструктор копилки
+    * - номер счета - 3-х значное число, начиная с 1
+    * - если номер меньше трехзначного числа, слева заполняем нулями
+    * - состояние счета при создании, учитывается в транзакциях
+    */
+    function Moneybox(acc, val) {
+        this.acc = acc;
+        this.val = val;
+        if (String(acc).length === 0 || String(acc).length > 3) {
+            alert ("Введите корректный даные");
+        } else (String(acc).length < 3) {
+            if(String(acc).length === 1) {
+                this.acc = '00' + this.acc;
+            } else {
+                this.acc = '0' + this.acc;
+            }
+        }
+        Number(this.acc);
+        totalAcc = {accNum: this.acc, accVal: this.val};
     }
 
     /**
@@ -96,7 +138,17 @@
     * пиши код ниже
     */
 
+    const targetHrefList = $('.prices-list_group');
 
+    $('.prices-subgroups_link').bind('click', function (event) {
+        const btnHref = event.target.closest('div').getAttribute('rel');
+        pane.data('jsp').scrollToElement(function () {
+            targetHrefList.forEach(function (item) {
+                if (item.getAttribute('id') === btnHref) return targetHrefList[i];
+            })
+        },
+            true, 115);
+    });
 
 
 
